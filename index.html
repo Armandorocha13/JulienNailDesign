@@ -3,174 +3,410 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Julien Nail Design</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
-    rel="stylesheet"
-  />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #f9c5d1 0%, #fef7f6 50%, #ffffff 100%);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 1rem;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    .container {
+      position: relative;
+      max-width: 400px;
+      width: 100%;
+      background: rgba(255 255 255 / 0.9);
+      border-radius: 1rem;
+      box-shadow: 8px 8px 8px rgba(0,0,0,0.1);
+      padding: 1.25rem 1.25rem 2rem;
+      padding-top: 9rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-sizing: border-box;
+      text-align: center;
+    }
+    /* Pink corner borders */
+    .corner {
+      position: absolute;
+      width: 28px;
+      height: 28px;
+      border-color: #f3a1b3;
+      border-style: solid;
+      border-width: 4px;
+      box-sizing: border-box;
+    }
+    .corner.top-left {
+      top: 0;
+      left: 0;
+      border-top-left-radius: 0.5rem;
+      border-right-width: 0;
+      border-bottom-width: 0;
+    }
+    .corner.bottom-left {
+      bottom: 0;
+      left: 0;
+      border-bottom-left-radius: 0.5rem;
+      border-right-width: 0;
+      border-top-width: 0;
+    }
+    .corner.top-right {
+      top: 0;
+      right: 0;
+      border-top-right-radius: 0.5rem;
+      border-left-width: 0;
+      border-bottom-width: 0;
+    }
+    .corner.bottom-right {
+      bottom: 0;
+      right: 0;
+      border-bottom-right-radius: 0.5rem;
+      border-left-width: 0;
+      border-top-width: 0;
+    }
+    /* Profile image */
+    .profile-wrapper {
+      position: absolute;
+      top: -72px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 160px;
+      height: 160px;
+      border: 4px solid white;
+      border-radius: 50%;
+      box-shadow: 0 0 0 4px white, 0 4px 8px rgba(0,0,0,0.1);
+      overflow: hidden;
+      animation: bounce 2s infinite;
+      background: white;
+    }
+    .profile-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    /* Bounce animation */
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateX(-50%) translateY(0);
+        animation-timing-function: cubic-bezier(0.8,0,1,1);
+      }
+      50% {
+        transform: translateX(-50%) translateY(-10%);
+        animation-timing-function: cubic-bezier(0,0,0.2,1);
+      }
+    }
+    /* Title */
+    .title {
+      color: #db275b;
+      font-weight: 600;
+      font-size: 1rem;
+      margin: 0 0 0.5rem;
+      white-space: nowrap;
+    }
+    /* Subtitle */
+    .subtitle {
+      color: #374151;
+      font-weight: 400;
+      font-size: 0.875rem;
+      margin: 0 0 1.5rem;
+      white-space: nowrap;
+    }
+    /* Underline */
+    .underline {
+      width: 80px;
+      height: 4px;
+      background-color: #db275b;
+      border-radius: 9999px;
+      margin: 0 auto 1.5rem;
+    }
+    /* Section heading */
+    .section-heading {
+      color: #991b1b;
+      font-weight: 600;
+      font-size: 1.125rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+    .section-heading .icon {
+      font-family: 'Font Awesome 5 Free';
+      font-weight: 900;
+      font-size: 1.25rem;
+      color: #b91c1c;
+      user-select: none;
+    }
+    /* Buttons container */
+    .btn-group {
+      display: flex;
+      gap: 1rem;
+      width: 100%;
+      margin-bottom: 1.5rem;
+    }
+    /* Buttons */
+    button.social-btn {
+      flex: 1;
+      background: white;
+      box-shadow: 4px 4px 6px rgba(0,0,0,0.1);
+      border-radius: 0.375rem;
+      padding: 0.75rem 0;
+      font-weight: 600;
+      font-size: 1.125rem;
+      color: #991b1b;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      cursor: pointer;
+      transition: box-shadow 0.3s ease;
+      border: none;
+      text-align: center;
+    }
+    button.social-btn:hover {
+      box-shadow: 6px 6px 12px rgba(0,0,0,0.15);
+    }
+    button.social-btn i {
+      font-size: 1.25rem;
+    }
+    button.social-btn.instagram i {
+      color: #db275b;
+    }
+    button.social-btn.tiktok i {
+      color: #f9a8d4;
+      font-size: 1.5rem;
+    }
+    /* WhatsApp button */
+    button.whatsapp-btn {
+      width: 100%;
+      background: #f9d6dd;
+      border-left: 4px solid #db275b;
+      color: #991b1b;
+      font-weight: 600;
+      font-size: 1.125rem;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.375rem;
+      box-shadow: 4px 4px 15px rgba(219,39,91,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      cursor: pointer;
+      transition: box-shadow 0.3s ease;
+      border: none;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+    button.whatsapp-btn:hover {
+      box-shadow: 6px 6px 20px rgba(219,39,91,0.5);
+    }
+    button.whatsapp-btn i {
+      font-size: 1.25rem;
+      color: #db275b;
+    }
+    button.whatsapp-btn svg {
+      width: 20px;
+      height: 20px;
+      stroke: #db275b;
+    }
+    /* Services & Info heading */
+    .services-heading {
+      color: #991b1b;
+      font-weight: 600;
+      font-size: 1.125rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+    .services-heading i {
+      color: #b91c1c;
+      font-size: 1.25rem;
+    }
+    /* Services buttons container */
+    .services-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      width: 100%;
+    }
+    /* Service buttons */
+    button.service-btn {
+      background: white;
+      box-shadow: 4px 4px 6px rgba(0,0,0,0.1);
+      border-radius: 0.375rem;
+      padding: 1rem 1.5rem;
+      font-weight: 600;
+      font-size: 1.125rem;
+      color: #991b1b;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      cursor: pointer;
+      border: none;
+      transition: box-shadow 0.3s ease;
+      text-align: center;
+    }
+    button.service-btn:hover {
+      box-shadow: 6px 6px 12px rgba(0,0,0,0.15);
+    }
+    button.service-btn svg,
+    button.service-btn i {
+      color: #f9a8d4;
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+    /* Footer */
+    footer {
+      margin-top: 2.5rem;
+      color: #f9a8d4;
+      font-weight: 600;
+      font-size: 1rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+      user-select: none;
+      text-align: center;
+    }
+    footer i {
+      font-size: 1.25rem;
+    }
+    /* Responsive */
+    @media (max-width: 480px) {
+      .container {
+        max-width: 100%;
+        padding: 1rem 1rem 1.5rem;
+        padding-top: 8rem;
+      }
+      .profile-wrapper {
+        width: 128px;
+        height: 128px;
+        top: -64px;
+      }
+      .title {
+        font-size: 0.875rem;
+      }
+      .subtitle {
+        font-size: 0.75rem;
+      }
+      .section-heading,
+      .services-heading {
+        font-size: 1rem;
+      }
+      button.social-btn,
+      button.whatsapp-btn,
+      button.service-btn {
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+      }
+      button.social-btn i,
+      button.service-btn svg,
+      button.service-btn i,
+      button.whatsapp-btn i {
+        font-size: 1.125rem;
+      }
+      footer {
+        font-size: 0.875rem;
+      }
+      footer i {
+        font-size: 1rem;
+      }
+    }
+  </style>
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
   />
-  <style>
-    body {
-      font-family: "Poppins", sans-serif;
-    }
-    @keyframes bounce {
-      0%, 100% {
-        transform: translateY(0);
-        animation-timing-function: cubic-bezier(0.8,0,1,1);
-      }
-      50% {
-        transform: translateY(-10%);
-        animation-timing-function: cubic-bezier(0,0,0.2,1);
-      }
-    }
-    .animate-bounce-custom {
-      animation: bounce 2s infinite;
-    }
-  </style>
 </head>
-<body class="bg-gradient-to-br from-pink-200 via-pink-100 to-white min-h-screen flex flex-col items-center justify-start p-4">
-  <div
-    class="relative max-w-md w-full bg-white bg-opacity-90 rounded-2xl shadow-[8px_8px_8px_rgba(0,0,0,0.1)] p-5 pt-32 flex flex-col items-center text-sm"
-  >
-    <!-- Pink corner shapes with original pink tone -->
-    <div
-      aria-hidden="true"
-      class="absolute top-0 left-0 w-7 h-7 border-t-4 border-l-4 border-pink-300 rounded-tl-lg"
-    ></div>
-    <div
-      aria-hidden="true"
-      class="absolute bottom-0 left-0 w-7 h-7 border-b-4 border-l-4 border-pink-300 rounded-bl-lg"
-    ></div>
-    <div
-      aria-hidden="true"
-      class="absolute top-0 right-0 w-7 h-7 border-t-4 border-r-4 border-pink-300 rounded-tr-lg"
-    ></div>
-    <div
-      aria-hidden="true"
-      class="absolute bottom-0 right-0 w-7 h-7 border-b-4 border-r-4 border-pink-300 rounded-br-lg"
-    ></div>
+<body>
+  <div class="container" role="main" aria-label="Julien Nail Design Studio">
+    <div class="corner top-left"></div>
+    <div class="corner bottom-left"></div>
+    <div class="corner top-right"></div>
+    <div class="corner bottom-right"></div>
 
-    <!-- Profile image circle with bounce animation, centered and slightly smaller -->
-    <div
-      class="rounded-full border-4 border-white shadow-lg overflow-hidden w-36 h-36 animate-bounce-custom mb-4 mx-auto"
-      style="box-shadow: 0 0 0 4px white"
-    >
+    <div class="profile-wrapper" aria-label="Foto de perfil com unhas vermelhas e brancas com glitter">
       <img
         src="https://storage.googleapis.com/a1aa/image/8ef99f46-8f11-4867-4506-c402380adf58.jpg"
         alt="Close-up photo of hands with long red and white glitter nail art on a brown background"
-        class="w-full h-full object-cover"
-        width="144"
-        height="144"
+        width="160"
+        height="160"
       />
     </div>
 
-    <!-- Title with uniform smaller text size and pink color -->
-    <h1
-      class="text-pink-600 font-semibold mb-2 whitespace-nowrap"
-      aria-label="Julien Nail Design"
-    >
-      Julien Nail Design
-    </h1>
+    <h1 class="title">Julien Nail Design</h1>
+    <p class="subtitle">Especialista em designs artísticos e únicos</p>
+    <div class="underline" aria-hidden="true"></div>
 
-    <!-- Subtitle with uniform smaller text size -->
-    <p class="text-gray-700 text-center mb-4 font-normal whitespace-nowrap">
-      Especialista em designs artísticos e únicos
-    </p>
-
-    <!-- Pink underline -->
-    <div class="w-20 h-0.5 bg-pink-600 rounded mx-auto mb-6"></div>
-
-    <!-- Section: Siga-nos & Agende -->
-    <h2 class="text-pink-800 font-semibold mb-4 flex items-center gap-2 text-base">
-      <span
-        aria-hidden="true"
-        class="text-pink-700"
-        style="font-family: 'Font Awesome 5 Free'; font-weight: 900"
-        >&#xf1db;</span
-      >
+    <h2 class="section-heading" aria-label="Siga-nos e Agende">
+      <span class="icon" aria-hidden="true">&#xf1db;</span>
       Siga-nos &amp; Agende
     </h2>
 
-    <div class="flex gap-4 w-full mb-4 text-base">
-      <button
-        type="button"
-        class="flex-1 flex items-center justify-center gap-2 bg-white shadow-lg rounded-md py-2.5 text-pink-800 font-semibold hover:shadow-xl transition-shadow"
-      >
-        <i class="fab fa-instagram text-pink-600 text-lg"></i> Instagram
+    <div class="btn-group">
+      <button class="social-btn instagram" type="button" aria-label="Instagram">
+        <i class="fab fa-instagram" aria-hidden="true"></i> Instagram
       </button>
-      <button
-        type="button"
-        class="flex-1 flex items-center justify-center gap-2 bg-white shadow-lg rounded-md py-2.5 text-pink-800 font-semibold hover:shadow-xl transition-shadow"
-      >
-        <i class="fab fa-tiktok text-pink-400 text-xl"></i> TikTok
+      <button class="social-btn tiktok" type="button" aria-label="TikTok">
+        <i class="fab fa-tiktok" aria-hidden="true"></i> TikTok
       </button>
     </div>
 
-    <button
-      type="button"
-      class="flex items-center justify-center gap-3 w-full border-l-4 border-pink-600 bg-pink-100 text-pink-800 font-semibold py-2.5 px-5 rounded-md shadow-[8px_8px_15px_rgba(219,39,91,0.3)] hover:shadow-[8px_8px_20px_rgba(219,39,91,0.5)] transition-shadow text-base"
-    >
-      <i class="fab fa-whatsapp text-pink-600 text-lg"></i>
+    <button class="whatsapp-btn" type="button" aria-label="Agende pelo WhatsApp">
+      <i class="fab fa-whatsapp" aria-hidden="true"></i>
       Agende pelo WhatsApp
       <svg
-        class="h-4 w-4 text-pink-600"
+        aria-hidden="true"
         fill="none"
         stroke="currentColor"
         stroke-width="2"
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
+        focusable="false"
       >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          d="M9 5l7 7-7 7"
-        ></path>
+        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path>
       </svg>
     </button>
 
-    <!-- Section: Serviços & Informações -->
-    <h2 class="text-pink-800 font-semibold mt-8 mb-4 flex items-center gap-2 text-base">
-      <i class="fas fa-lock text-pink-700 text-lg"></i> Serviços &amp; Informações
+    <h2 class="services-heading" aria-label="Serviços e Informações">
+      <i class="fas fa-lock" aria-hidden="true"></i> Serviços &amp; Informações
     </h2>
 
-    <div class="flex flex-col gap-4 w-full text-base">
-      <button
-        type="button"
-        class="flex items-center gap-3 bg-white shadow-lg rounded-md py-3 px-5 text-pink-800 font-semibold hover:shadow-xl transition-shadow"
-      >
+    <div class="services-list">
+      <button class="service-btn" type="button" aria-label="Tabela de preços">
         <svg
-          class="h-5 w-5 text-pink-400"
+          aria-hidden="true"
           fill="none"
           stroke="currentColor"
           stroke-width="2"
           viewBox="0 0 24 24"
           xmlns="http://www.w3.org/2000/svg"
+          focusable="false"
         >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M4 7h16M4 12h16M4 17h7"
-          ></path>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M4 12h16M4 17h7"></path>
         </svg>
         Tabela de preços
       </button>
-      <button
-        type="button"
-        class="flex items-center gap-3 bg-white shadow-lg rounded-md py-3 px-5 text-pink-800 font-semibold hover:shadow-xl transition-shadow"
-      >
-        <i class="fas fa-map-marker-alt text-pink-400 text-lg"></i> Como chegar
+      <button class="service-btn" type="button" aria-label="Como chegar">
+        <i class="fas fa-map-marker-alt" aria-hidden="true"></i> Como chegar
       </button>
     </div>
 
-    <!-- Footer -->
-    <p
-      class="mt-10 text-pink-400 text-center font-semibold flex items-center justify-center gap-2 select-none text-sm"
-    >
-      <i class="far fa-heart"></i> © 2025 Nail Design Studio <i class="far fa-heart"></i>
-    </p>
+    <footer>
+      <i class="far fa-heart" aria-hidden="true"></i>
+      © 2025 Nail Design Studio
+      <i class="far fa-heart" aria-hidden="true"></i>
+    </footer>
   </div>
 </body>
 </html>
