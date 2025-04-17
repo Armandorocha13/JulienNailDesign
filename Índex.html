@@ -1,0 +1,176 @@
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Julien Nail Design</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+  />
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+    }
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+        animation-timing-function: cubic-bezier(0.8,0,1,1);
+      }
+      50% {
+        transform: translateY(-10%);
+        animation-timing-function: cubic-bezier(0,0,0.2,1);
+      }
+    }
+    .animate-bounce-custom {
+      animation: bounce 2s infinite;
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-pink-200 via-pink-100 to-white min-h-screen flex flex-col items-center justify-start p-4">
+  <div
+    class="relative max-w-md w-full bg-white bg-opacity-90 rounded-2xl shadow-[8px_8px_8px_rgba(0,0,0,0.1)] p-5 pt-32 flex flex-col items-center text-sm"
+  >
+    <!-- Pink corner shapes with original pink tone -->
+    <div
+      aria-hidden="true"
+      class="absolute top-0 left-0 w-7 h-7 border-t-4 border-l-4 border-pink-300 rounded-tl-lg"
+    ></div>
+    <div
+      aria-hidden="true"
+      class="absolute bottom-0 left-0 w-7 h-7 border-b-4 border-l-4 border-pink-300 rounded-bl-lg"
+    ></div>
+    <div
+      aria-hidden="true"
+      class="absolute top-0 right-0 w-7 h-7 border-t-4 border-r-4 border-pink-300 rounded-tr-lg"
+    ></div>
+    <div
+      aria-hidden="true"
+      class="absolute bottom-0 right-0 w-7 h-7 border-b-4 border-r-4 border-pink-300 rounded-br-lg"
+    ></div>
+
+    <!-- Profile image circle with bounce animation, centered and slightly smaller -->
+    <div
+      class="rounded-full border-4 border-white shadow-lg overflow-hidden w-36 h-36 animate-bounce-custom mb-4 mx-auto"
+      style="box-shadow: 0 0 0 4px white"
+    >
+      <img
+        src="https://storage.googleapis.com/a1aa/image/8ef99f46-8f11-4867-4506-c402380adf58.jpg"
+        alt="Close-up photo of hands with long red and white glitter nail art on a brown background"
+        class="w-full h-full object-cover"
+        width="144"
+        height="144"
+      />
+    </div>
+
+    <!-- Title with uniform smaller text size and pink color -->
+    <h1
+      class="text-pink-600 font-semibold mb-2 whitespace-nowrap"
+      aria-label="Julien Nail Design"
+    >
+      Julien Nail Design
+    </h1>
+
+    <!-- Subtitle with uniform smaller text size -->
+    <p class="text-gray-700 text-center mb-4 font-normal whitespace-nowrap">
+      Especialista em designs artísticos e únicos
+    </p>
+
+    <!-- Pink underline -->
+    <div class="w-20 h-0.5 bg-pink-600 rounded mx-auto mb-6"></div>
+
+    <!-- Section: Siga-nos & Agende -->
+    <h2 class="text-pink-800 font-semibold mb-4 flex items-center gap-2 text-base">
+      <span
+        aria-hidden="true"
+        class="text-pink-700"
+        style="font-family: 'Font Awesome 5 Free'; font-weight: 900"
+        >&#xf1db;</span
+      >
+      Siga-nos &amp; Agende
+    </h2>
+
+    <div class="flex gap-4 w-full mb-4 text-base">
+      <button
+        type="button"
+        class="flex-1 flex items-center justify-center gap-2 bg-white shadow-lg rounded-md py-2.5 text-pink-800 font-semibold hover:shadow-xl transition-shadow"
+      >
+        <i class="fab fa-instagram text-pink-600 text-lg"></i> Instagram
+      </button>
+      <button
+        type="button"
+        class="flex-1 flex items-center justify-center gap-2 bg-white shadow-lg rounded-md py-2.5 text-pink-800 font-semibold hover:shadow-xl transition-shadow"
+      >
+        <i class="fab fa-tiktok text-pink-400 text-xl"></i> TikTok
+      </button>
+    </div>
+
+    <button
+      type="button"
+      class="flex items-center justify-center gap-3 w-full border-l-4 border-pink-600 bg-pink-100 text-pink-800 font-semibold py-2.5 px-5 rounded-md shadow-[8px_8px_15px_rgba(219,39,91,0.3)] hover:shadow-[8px_8px_20px_rgba(219,39,91,0.5)] transition-shadow text-base"
+    >
+      <i class="fab fa-whatsapp text-pink-600 text-lg"></i>
+      Agende pelo WhatsApp
+      <svg
+        class="h-4 w-4 text-pink-600"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M9 5l7 7-7 7"
+        ></path>
+      </svg>
+    </button>
+
+    <!-- Section: Serviços & Informações -->
+    <h2 class="text-pink-800 font-semibold mt-8 mb-4 flex items-center gap-2 text-base">
+      <i class="fas fa-lock text-pink-700 text-lg"></i> Serviços &amp; Informações
+    </h2>
+
+    <div class="flex flex-col gap-4 w-full text-base">
+      <button
+        type="button"
+        class="flex items-center gap-3 bg-white shadow-lg rounded-md py-3 px-5 text-pink-800 font-semibold hover:shadow-xl transition-shadow"
+      >
+        <svg
+          class="h-5 w-5 text-pink-400"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M4 7h16M4 12h16M4 17h7"
+          ></path>
+        </svg>
+        Tabela de preços
+      </button>
+      <button
+        type="button"
+        class="flex items-center gap-3 bg-white shadow-lg rounded-md py-3 px-5 text-pink-800 font-semibold hover:shadow-xl transition-shadow"
+      >
+        <i class="fas fa-map-marker-alt text-pink-400 text-lg"></i> Como chegar
+      </button>
+    </div>
+
+    <!-- Footer -->
+    <p
+      class="mt-10 text-pink-400 text-center font-semibold flex items-center justify-center gap-2 select-none text-sm"
+    >
+      <i class="far fa-heart"></i> © 2025 Nail Design Studio <i class="far fa-heart"></i>
+    </p>
+  </div>
+</body>
+</html>
